@@ -1,0 +1,17 @@
+POST https://us-central1-glowing-bus-334423.cloudfunctions.net/RssReader
+Content-Type: application/json
+
+{
+  "link": "http://fanfox.net/rss/boku_no_hero_academia.xml"
+}
+
+###
+
+POST https://us-central1-glowing-bus-334423.cloudfunctions.net/RssReader
+Content-Type: application/json
+
+{
+  "link": "https://readmanga.io/rss/manga?name=moia_geroiskaia_akademiia"
+}
+
+

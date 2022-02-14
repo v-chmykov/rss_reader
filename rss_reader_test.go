@@ -60,7 +60,7 @@ func TestIsNew(t *testing.T) {
 
 func createDummyItem(link string, pubDate time.Time) *gofeed.Item {
 	return &gofeed.Item{
-		Link:      link,
-		Published: pubDate.Format(TimeLayout),
+		Link:            link,
+		PublishedParsed: &pubDate,
 	}
 }

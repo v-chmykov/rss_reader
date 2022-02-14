@@ -8,7 +8,6 @@ import (
 	"time"
 )
 
-const TimeLayout = "Mon, 02 Jan 2006 15:04:05 -0700"
 const PeriodDays = 7
 
 type Source struct {
@@ -49,9 +48,7 @@ func GetNewChapters(items []*gofeed.Item) []string {
 }
 
 func IsNew(item *gofeed.Item) bool {
-	pubDate, _ := time.Parse(TimeLayout, item.Published)
-
 	lastCheckDate := time.Now().AddDate(0, 0, -1*PeriodDays-1)
 
-	return pubDate.After(lastCheckDate)
+	return item.PublishedParsed.After(lastCheckDate)
 }
