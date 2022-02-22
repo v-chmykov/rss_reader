@@ -1,4 +1,4 @@
-package rss_reader
+package src
 
 import (
 	"github.com/mmcdole/gofeed"
