@@ -6,7 +6,8 @@ data "archive_file" "source" {
   type        = "zip"
   source_dir  = local.root_dir
   output_path = "/tmp/function.zip"
-  excludes    = [
+
+  excludes = [
     "go.mod",
     "go.sum",
     "rss_reader_test.go"
