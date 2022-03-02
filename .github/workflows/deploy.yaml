@@ -12,9 +12,6 @@ jobs:
     defaults:
       run:
         working-directory: ./terraform
-
-    defaults:
-      run:
         shell: bash
 
     steps:
