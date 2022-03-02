@@ -15,7 +15,7 @@ data "archive_file" "source" {
 }
 
 resource "google_storage_bucket" "bucket" {
-  name     = "${var.PROJECT_ID}--${lower(var.FUNCTION_NAME)}"
+  name     = "${var.project_id}--${lower(var.function_name)}"
   location = var.REGION
 }
 
@@ -27,12 +27,12 @@ resource "google_storage_bucket_object" "zip" {
 
 resource "google_cloudfunctions_function" "function" {
   available_memory_mb = "128"
-  entry_point         = var.ENTRY_POINT
+  entry_point         = var.entry_point
   ingress_settings    = "ALLOW_ALL"
 
-  name                  = var.FUNCTION_NAME
-  project               = var.PROJECT_ID
-  region                = var.REGION
+  name                  = var.function_name
+  project               = var.project_id
+  region                = var.region
   runtime               = "go116"
   service_account_email = google_service_account.function-sa.email
   timeout               = 20
@@ -54,5 +54,5 @@ resource "google_service_account" "function-sa" {
   account_id   = "function-sa"
   description  = "Controls the workflow for the cloud pipeline"
   display_name = "function-sa"
-  project      = var.PROJECT_ID
+  project      = var.project_id
 }

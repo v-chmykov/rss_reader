@@ -9,9 +9,13 @@ on:
     - main
 
 jobs:
-  build:
-    name: Test
+  tests:
+    name: Tests
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./src
+        
     steps:
       - name: Set up Go 1.16
         uses: actions/setup-go@v1
@@ -24,9 +28,9 @@ jobs:
       - name: Build
         env:
           GOPROXY: "https://proxy.golang.org"
-        run: cd src && go build . && go vet .
+        run: go build . && go vet .
 
       - name: Test
         env:
           GOPROXY: "https://proxy.golang.org"
-        run: cd src && go test -v .
+        run: go test -v .

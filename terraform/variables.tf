@@ -1,16 +1,16 @@
-variable "PROJECT_ID" {
+variable "project_id" {
   description = "The project ID in Google Cloud to use for these resources."
 }
 
-variable "REGION" {
+variable "region" {
   description = "The region in Google Cloud where the resources will be deployed."
 }
 
-variable "FUNCTION_NAME" {
+variable "function_name" {
   description = "The name of the function to be deployed"
 }
 
-variable "ENTRY_POINT" {
+variable "entry_point" {
   description = "The entrypoint where the function is called"
   default     = "RssReader"
 }
